@@ -14,7 +14,7 @@ async fn main() -> azure_core::Result<()> {
     let service_client = BlobServiceClient::new(account, storage_credentials);
 
     let properties = service_client.get_properties().await?;
-    println!("properties: {:#?}", properties);
+    println!("properties: {properties:#?}");
 
     Ok(())
 }

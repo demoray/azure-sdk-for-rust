@@ -70,7 +70,7 @@ async fn main() -> azure_core::Result<()> {
         let mut block_list = BlockList::default();
         for offset in (handle.offset..handle.stream_size).step_by(block_size as usize) {
             log::info!("trying to upload at offset {offset} - {block_size}");
-            let block_id = format!("{:08X}", offset);
+            let block_id = format!("{offset:08X}");
             blob_client.put_block(block_id.clone(), &handle).await?;
             log::info!("uploaded block {block_id}");
             block_list

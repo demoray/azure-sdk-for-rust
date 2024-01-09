@@ -56,7 +56,7 @@ impl TryFrom<Range> for BA512Range {
         match r {
             Range::Range(r) => BA512Range::new(r.start, r.end),
             Range::RangeFrom(r) => Err(Error::with_message(ErrorKind::DataConversion, || {
-                format!("error converting RangeFrom<{:?}> into BA512Range", r)
+                format!("error converting RangeFrom<{r:?}> into BA512Range")
             })),
         }
     }
